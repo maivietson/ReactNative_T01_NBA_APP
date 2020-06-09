@@ -8,6 +8,7 @@ import {
   } from 'react-native';
   import PropTypes from 'prop-types';
   import Input from '../../utils/forms/input';
+  import ValidationRules from '../../utils/forms/validationRules';
 
 export default class AuthForm extends Component {
     state = {
@@ -76,13 +77,46 @@ export default class AuthForm extends Component {
         formCopy[name].value = value;
 
         /// rules
+        let rules = formCopy[name].rules;
+        let valid = ValidationRules(value, rules, formCopy);
+
+        formCopy[name].valid = valid;
+
         this.setState({
             form: formCopy
         })
     }
 
     submitUser = () => {
+        let isFormValid = true;
+        let formToSubmit = {};
+        const formCopy = this.state.form;
 
+        for(let key in formCopy) {
+            if(this.state.type === 'Login') {
+                /// LOGIN
+                if(key !== 'confirmPassword') {
+                    isFormValid = isFormValid && formCopy[key].valid;
+                    formToSubmit[key] = formCopy[key].value;
+                }
+            } else {
+                /// REGISTER
+                isFormValid = isFormValid && formCopy[key].valid;
+                formToSubmit[key] = formCopy[key].value;
+            }
+        }
+
+        if(isFormValid) {
+            if(this.state.type === 'Login') {
+                alert(formToSubmit["email"]);
+            } else {
+                alert(formToSubmit);
+            }
+        } else {
+            this.setState({
+                hasErrors: true
+            })
+        }
     }
 
     changeFormType = () => {
@@ -165,7 +199,6 @@ const styles = StyleSheet.create({
             android:{
                 marginTop: 10,
                 marginBottom: 10,
-                backgroundColor:'transparent'
             }
         })
     }
