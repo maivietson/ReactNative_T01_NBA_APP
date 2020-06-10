@@ -6,11 +6,15 @@ import {
     Button,
     Platform
   } from 'react-native';
-  import PropTypes from 'prop-types';
-  import Input from '../../utils/forms/input';
-  import ValidationRules from '../../utils/forms/validationRules';
+import PropTypes from 'prop-types';
+import Input from '../../utils/forms/input';
+import ValidationRules from '../../utils/forms/validationRules';
 
-export default class AuthForm extends Component {
+import { connect } from 'react-redux';
+import { signUp, signIn } from '../../store/actions/user_actions';
+import { bindActionCreators } from 'redux';
+
+class AuthForm extends Component {
     state = {
         type:'Login',
         action:'Login',
@@ -108,9 +112,9 @@ export default class AuthForm extends Component {
 
         if(isFormValid) {
             if(this.state.type === 'Login') {
-                alert(formToSubmit["email"]);
+                this.props.signIn(formToSubmit);
             } else {
-                alert(formToSubmit);
+                this.props.signUp(formToSubmit);
             }
         } else {
             this.setState({
@@ -202,4 +206,17 @@ const styles = StyleSheet.create({
             }
         })
     }
-})
+});
+
+function mapStateToProps(state) {
+    console.log(state)
+    return {
+        User: state.User
+    }
+}
+
+function mapDispatchToProps(dispatch) {
+    return bindActionCreators({signIn, signUp}, dispatch);
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(AuthForm);

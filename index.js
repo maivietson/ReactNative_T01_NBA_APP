@@ -1,3 +1,4 @@
+import React from 'react';
 import {AppRegistry} from 'react-native';
 import App from './app/App';
 import {name as appName} from './app.json';
@@ -15,9 +16,11 @@ const createStoreWithMiddleware = createStore(reducers, composeEnhancers(
 ))
 
 const appRedux = () => {
-    <Provider>
-        <App />
-    </Provider>
+    return (
+        <Provider store={createStoreWithMiddleware}>
+            <App />
+        </Provider>
+    )
 }
 
-AppRegistry.registerComponent(appName, () => App);
+AppRegistry.registerComponent(appName, () => appRedux);
