@@ -12,8 +12,11 @@ import AuthForm from './authForm';
 
 export default function AuthComponent({ navigation }) {
 
-    // const [loading, setLoading] = useState(true);
-    let loading = true;
+    const [loading, setLoading] = useState(true);
+    // let loading = true;
+    // state = {
+    //     loading: false
+    // }
 
     goNext = () => {
         navigation.navigate('MainScreen');
@@ -30,7 +33,7 @@ export default function AuthComponent({ navigation }) {
             <ScrollView style={styles.container}>
                 <View>
                     <AuthLogo />
-                    <AuthForm method={this.goNext} />
+                    <AuthForm goMain={this.goNext} />
                 </View>
             </ScrollView>
         );

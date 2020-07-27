@@ -113,8 +113,10 @@ class AuthForm extends Component {
         if(isFormValid) {
             if(this.state.type === 'Login') {
                 this.props.signIn(formToSubmit);
+                console.log(formToSubmit);
             } else {
                 this.props.signUp(formToSubmit);
+                console.log(formToSubmit);
             }
         } else {
             this.setState({
@@ -174,7 +176,7 @@ class AuthForm extends Component {
                     <View style={styles.button}>
                         <Button 
                             title="I'll do it later"
-                            onPress={this.props.method}
+                            onPress={() => this.props.goMain()}
                         />
                     </View>
                 </View>

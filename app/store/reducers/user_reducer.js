@@ -1,6 +1,7 @@
 export default function(state={}, action) {
     switch(action.type) {
         case "SIGN_IN":
+            console.log(action.type);
             return {
                 ...state,
                 auth: {
