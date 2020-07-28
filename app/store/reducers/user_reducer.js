@@ -1,20 +1,23 @@
+import { SIGN_UP, SIGN_IN } from '../types';
+
 export default function(state={}, action) {
     switch(action.type) {
-        case "SIGN_IN":
-            console.log(action.type);
+        case SIGN_IN:
             return {
                 ...state,
                 auth: {
-                    email: action.payload.email || false,
-                    token: action.payload.token || false,
+                    uid: action.payload.localId || false,
+                    token: action.payload.idToken || false,
+                    refToken: action.payload.refreshToken || false
                 }
             }
-        case "SIGN_UP":
+        case SIGN_UP:
         return {
             ...state,
             auth: {
-                email: action.payload.email || false,
-                token: action.payload.token || false,
+                uid: action.payload.localId || false,
+                token: action.payload.idToken || false,
+                refToken: action.payload.refreshToken || false
             }
         };
         default:

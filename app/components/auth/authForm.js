@@ -63,8 +63,8 @@ class AuthForm extends Component {
         <Input 
             placeholder="Confirm your password"
             placeholderTextColor="#cecece"
-            type={this.state.form.password.type}
-            value={this.state.form.password.value}
+            type={this.state.form.confirmPassword.type}
+            value={this.state.form.confirmPassword.value}
             onChangeText={ (value) => this.updateInput("confirmPassword", value) }
             // overrideStyle={{}}
             secureTextEntry
