@@ -21,7 +21,13 @@ export default function RootNavigator(props) {
                     headerShown: false
                 }}
                 />
-            <Stack.Screen name="MainScreen" component={MainScreen} />
+            <Stack.Screen 
+                name="MainScreen" 
+                component={MainScreen} 
+                options={{
+                    headerShown: false
+                }}
+                />
         </Stack.Navigator>
     )
 }

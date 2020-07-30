@@ -12,8 +12,8 @@ import AuthForm from './authForm';
 
 export default function AuthComponent({ navigation }) {
 
-    const [loading, setLoading] = useState(true);
-    // let loading = true;
+    // const [loading, setLoading] = useState(true);
+    let loading = false;
     // state = {
     //     loading: false
     // }
@@ -22,7 +22,11 @@ export default function AuthComponent({ navigation }) {
         navigation.navigate('MainScreen');
     }
 
-    if(!loading) {
+    setLoading = () => {
+        loading = true;
+    }
+
+    if(loading) {
         return(
             <View style={styles.loading}>
                 <ActivityIndicator />

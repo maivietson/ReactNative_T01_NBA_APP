@@ -11,10 +11,31 @@ import Input from '../../utils/forms/input';
 import ValidationRules from '../../utils/forms/validationRules';
 
 import { connect } from 'react-redux';
-import { signUp, signIn } from '../../store/actions/user_actions';
+import { signUp, signIn, autoSignIn } from '../../store/actions/user_actions';
 import { bindActionCreators } from 'redux';
 
+import { getTokens, setTokens } from '../../utils/misc';
+
 class AuthForm extends Component {
+
+    componentDidMount() {
+        getTokens((value) => {
+            if(value.token)
+            {
+                // console.log("auto login");
+                this.props.autoSignIn(value.refreshToken).then(() => {
+                    if(!this.props.User.auth.token) {
+
+                    } else {
+                        setTokens(this.props.User.auth, () => {
+                            this.props.goMain();
+                        })
+                    }
+                })
+            }
+        });
+    }
+
     state = {
         type:'Login',
         action:'Login',
@@ -112,15 +133,28 @@ class AuthForm extends Component {
 
         if(isFormValid) {
             if(this.state.type === 'Login') {
-                this.props.signIn(formToSubmit);
-                console.log(formToSubmit);
+                this.props.signIn(formToSubmit).then(() => {
+                    this.manageAccess();
+                })
             } else {
-                this.props.signUp(formToSubmit);
-                console.log(formToSubmit);
+                this.props.signUp(formToSubmit).then(() => {
+                    this.manageAccess();
+                })
             }
         } else {
             this.setState({
                 hasErrors: true
+            })
+        }
+    }
+
+    manageAccess = () => {
+        if(!this.props.User.auth.uid) {
+            this.setState({hasErrors: true});
+        } else {
+            setTokens(this.props.User.auth, () => {
+                this.setState({hasErrors: false});
+                this.props.goMain();
             })
         }
     }
@@ -211,14 +245,14 @@ const styles = StyleSheet.create({
 });
 
 function mapStateToProps(state) {
-    console.log(state)
+    // console.log(state)
     return {
         User: state.User
     }
 }
 
 function mapDispatchToProps(dispatch) {
-    return bindActionCreators({signIn, signUp}, dispatch);
+    return bindActionCreators({signIn, signUp, autoSignIn}, dispatch);
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(AuthForm);
