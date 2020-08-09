@@ -9,6 +9,7 @@ import { createMaterialBottomTabNavigator } from '@react-navigation/material-bot
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import Games from './games/index';
 import News from './news/index';
+import Pictures from './pictures/index';
 
 // const Tab = createBottomTabNavigator();
 const Tab = createMaterialBottomTabNavigator();
@@ -34,7 +35,17 @@ export default class MainComponent extends Component {
             options={{
               tabBarLabel: 'News',
               tabBarIcon: ({ color }) => (
-                <MaterialCommunityIcons name="movie-roll" color={color} size={26} />
+                <MaterialCommunityIcons name="filmstrip-box-multiple" color={color} size={26} />
+              )
+            }}
+          />
+          <Tab.Screen 
+            name="Pictures"
+            component={Pictures}
+            options={{
+              tabBarLabel: 'Pictures',
+              tabBarIcon: ({ color }) => (
+                <MaterialCommunityIcons name="image-multiple" color={color} size={26} />
               )
             }}
           />

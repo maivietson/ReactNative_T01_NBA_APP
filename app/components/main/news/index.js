@@ -31,7 +31,7 @@ export default class NewsComponent extends Component {
     return (
         <Stack.Navigator screenOptions={{
           headerStyle: {
-            backgroundColor: '#f4511e',
+            backgroundColor: '#2196F3',
           },
           headerTintColor: '#fff',
           headerTitleStyle: {

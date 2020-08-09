@@ -1,4 +1,4 @@
-import { SIGN_UP, SIGN_IN, AUTO_SIGN_IN } from '../types';
+import { SIGN_UP, SIGN_IN, AUTO_SIGN_IN } from '../../types';
 
 export default function(state={}, action) {
     switch(action.type) {

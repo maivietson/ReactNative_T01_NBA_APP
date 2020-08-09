@@ -1,0 +1,83 @@
+{
+  "pictures": {
+    "pictures_cat": {
+      "-PIC_CAT_EU": {
+        "catID": "picture_eu",
+        "image": "https://lh3.googleusercontent.com/pw/ACtC-3dXRTaOIJneXDJrAWMXsdPw3tWTedpQXT3KU7O5MpHjo62o2R4hTRQ0v-hHRTHgA9TTadgzv92atVtFtSaOxfPKZWZQR2SxEagdWEK3oZdHyoE4nO5D7n_oeeEJ372Wq4T-wCLgFwh6KbnLh1uhpJXg=w392-h261-no?authuser=0",
+        "title": "Europe Pictures",
+        "description": "An attribute to set the elevation of the card. This will increase the 'drop-shadow' of the card."
+      },
+      "-PIC_CAT_ASIA": {
+        "catID": "picture_asia",
+        "image": "https://lh5.googleusercontent.com/T5y4uVFEkNbEHY5OS1SHkzlAo_FsfgYvsOhXuoBeuFIBQK0Gh0ZGHdAyBMFD9rkmL6mKhEf8hh4p1zk=w1366-h664",
+        "title": "Asian Pictures",
+        "description": "An attribute to set the elevation of the card. This will increase the 'drop-shadow' of the card."
+      }
+    },
+    "picture_eu": {
+      "-PIC_ALBUMS": {
+        "-PIC_01": {
+          "content": "-PIC_01_DETAILS",
+          "date": "2020-08-02T00:00:00",
+          "dateId": "EU2020080201",
+          "image": "https://lh3.googleusercontent.com/pw/ACtC-3dXRTaOIJneXDJrAWMXsdPw3tWTedpQXT3KU7O5MpHjo62o2R4hTRQ0v-hHRTHgA9TTadgzv92atVtFtSaOxfPKZWZQR2SxEagdWEK3oZdHyoE4nO5D7n_oeeEJ372Wq4T-wCLgFwh6KbnLh1uhpJXg=w392-h261-no?authuser=0",
+          "model": "Emily Bloom",
+          "title": "Carmelo anthony is going to play for the Heat."
+        }
+      },
+      "-PIC_ALBUM_DETAILS": {
+        "-PIC_01_DETAILS": {
+          "01": {
+            "url": "https://lh3.googleusercontent.com/pw/ACtC-3dXRTaOIJneXDJrAWMXsdPw3tWTedpQXT3KU7O5MpHjo62o2R4hTRQ0v-hHRTHgA9TTadgzv92atVtFtSaOxfPKZWZQR2SxEagdWEK3oZdHyoE4nO5D7n_oeeEJ372Wq4T-wCLgFwh6KbnLh1uhpJXg=w392-h261-no?authuser=0"
+          },
+          "02": {
+            "url": "https://lh3.googleusercontent.com/pw/ACtC-3dXRTaOIJneXDJrAWMXsdPw3tWTedpQXT3KU7O5MpHjo62o2R4hTRQ0v-hHRTHgA9TTadgzv92atVtFtSaOxfPKZWZQR2SxEagdWEK3oZdHyoE4nO5D7n_oeeEJ372Wq4T-wCLgFwh6KbnLh1uhpJXg=w392-h261-no?authuser=0"
+          },
+          "03": {
+            "url": "https://lh3.googleusercontent.com/pw/ACtC-3dXRTaOIJneXDJrAWMXsdPw3tWTedpQXT3KU7O5MpHjo62o2R4hTRQ0v-hHRTHgA9TTadgzv92atVtFtSaOxfPKZWZQR2SxEagdWEK3oZdHyoE4nO5D7n_oeeEJ372Wq4T-wCLgFwh6KbnLh1uhpJXg=w392-h261-no?authuser=0"
+          }
+        }
+      }
+    },
+    "picture_asia": {
+      "-PIC_ALBUMS": {
+        "-PIC_01": {
+          "content": "-PIC_01_DETAILS",
+          "date": "2020-08-02T00:00:00",
+          "dateId": "ASIA2020080201",
+          "image": "https://lh5.googleusercontent.com/T5y4uVFEkNbEHY5OS1SHkzlAo_FsfgYvsOhXuoBeuFIBQK0Gh0ZGHdAyBMFD9rkmL6mKhEf8hh4p1zk=w1366-h664",
+          "model": "anonymous",
+          "title": "Carmelo anthony is going to play for the Heat."
+        }
+      },
+      "-PIC_ALBUM_DETAILS": {
+        "-PIC_01_DETAILS": {
+          "image_01": "https://lh5.googleusercontent.com/T5y4uVFEkNbEHY5OS1SHkzlAo_FsfgYvsOhXuoBeuFIBQK0Gh0ZGHdAyBMFD9rkmL6mKhEf8hh4p1zk=w1366-h664",
+          "image_02": "https://lh5.googleusercontent.com/T5y4uVFEkNbEHY5OS1SHkzlAo_FsfgYvsOhXuoBeuFIBQK0Gh0ZGHdAyBMFD9rkmL6mKhEf8hh4p1zk=w1366-h664",
+          "image_03": "https://lh5.googleusercontent.com/T5y4uVFEkNbEHY5OS1SHkzlAo_FsfgYvsOhXuoBeuFIBQK0Gh0ZGHdAyBMFD9rkmL6mKhEf8hh4p1zk=w1366-h664",
+          "image_04": "https://lh5.googleusercontent.com/T5y4uVFEkNbEHY5OS1SHkzlAo_FsfgYvsOhXuoBeuFIBQK0Gh0ZGHdAyBMFD9rkmL6mKhEf8hh4p1zk=w1366-h664",
+          "image_05": "https://lh5.googleusercontent.com/T5y4uVFEkNbEHY5OS1SHkzlAo_FsfgYvsOhXuoBeuFIBQK0Gh0ZGHdAyBMFD9rkmL6mKhEf8hh4p1zk=w1366-h664"
+        }
+      }
+    }
+  },
+  "videos": {
+    "videos_cat": {
+      "-VIDEO_CAT_PUBLIC_AGENT": {
+        "catID": "video_public_agent",
+        "image": "https://lh3.google.com/u/0/d/0B2maKSRMqJUsSDV2VnQ0ZE5nMFU=w1366-h667-iv2",
+        "title": "Public Agent"
+      }
+    },
+    "video_public_agent": {
+      "-VIDEO_01": {
+        "content": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras nec blandit nisi. Mauris sagittis semper eros ac euismod. Phasellus eu vulputate velit. Curabitur ac consequat libero. Fusce fermentum ante id nunc dictum, at iaculis velit volutpat. Sed lorem massa, euismod sed consequat dignissim, ultrices a dolor. Suspendisse maximus euismod lorem, vitae viverra velit pellentesque ut. Quisque diam ipsum, vestibulum ac cursus sed, sagittis id dui. Aenean libero dolor, porttitor pulvinar lacus at, vulputate euismod odio. Nullam libero sapien, porta viverra accumsan in, molestie in dolor. Nunc tristique sem feugiat neque efficitur, sit amet fermentum nulla sollicitudin. Morbi consectetur auctor lacus, id ultrices lorem vehicula eget. Nam mattis nec leo sit amet pretium. Donec hendrerit iaculis sapien a sagittis. Vestibulum eget commodo magna, et rhoncus ligula. Etiam feugiat mattis nibh, quis tincidunt turpis hendrerit volutpat.</p>",
+        "date": "2020-08-02T00:00:00",
+        "dateId": "AGENT2020080201",
+        "link": "http://ferdinandwolf.com/news/1.jpg",
+        "model": "Knicks",
+        "title": "Carmelo anthony is going to play for the Heat."
+      }
+    }
+  }
+}

@@ -11,7 +11,7 @@ import Input from '../../utils/forms/input';
 import ValidationRules from '../../utils/forms/validationRules';
 
 import { connect } from 'react-redux';
-import { signUp, signIn, autoSignIn } from '../../store/actions/user_actions';
+import { signUp, signIn, autoSignIn } from '../../store/actions/user_actions/user_actions';
 import { bindActionCreators } from 'redux';
 
 import { getTokens, setTokens } from '../../utils/misc';
@@ -20,18 +20,21 @@ class AuthForm extends Component {
 
     componentDidMount() {
         getTokens((value) => {
-            if(value.token)
+            if(value)
             {
-                // console.log("auto login");
-                this.props.autoSignIn(value.refreshToken).then(() => {
-                    if(!this.props.User.auth.token) {
-
-                    } else {
-                        setTokens(this.props.User.auth, () => {
-                            this.props.goMain();
-                        })
-                    }
-                })
+                if(value.token)
+                {
+                    // console.log("auto login");
+                    this.props.autoSignIn(value.refreshToken).then(() => {
+                        if(!this.props.User.auth.token) {
+    
+                        } else {
+                            setTokens(this.props.User.auth, () => {
+                                this.props.goMain();
+                            })
+                        }
+                    })
+                }
             }
         });
     }

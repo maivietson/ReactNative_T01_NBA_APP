@@ -1,8 +1,8 @@
 import axios from 'axios';
 
-import { SIGN_UP, SIGN_IN, AUTO_SIGN_IN } from '../types';
+import { SIGN_UP, SIGN_IN, AUTO_SIGN_IN } from '../../types';
 
-import { FIREBASEURL, SIGNUP, SIGNIN, REFRESH } from '../../utils/misc';
+import { FIREBASEURL, SIGNUP, SIGNIN, REFRESH } from '../../../utils/misc';
 
 export function signUp(data) {
 
