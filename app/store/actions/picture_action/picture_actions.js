@@ -28,27 +28,27 @@ export function getPictures() {
         payload: request
     }
 }
-export function getAlbums(catID) {
+// export function getAlbums(catID) {
 
-    const request = axios({
-        method:'GET',
-        url:`${FIREBASEURL}/pictures/${catID}/-PIC_ALBUMS.json`
-    }).then(response => {
-        const albums = [];
-        for(let key in response.data) {
-            albums.push({
-                ...response.data[key],
-                id: key
-            })
-        }
-        console.log(albums);
-        return albums;
-    }).catch(e => {
-        return false;
-    })
+//     const request = axios({
+//         method:'GET',
+//         url:`${FIREBASEURL}/pictures/${catID}/-PIC_ALBUMS.json`
+//     }).then(response => {
+//         const albums = [];
+//         for(let key in response.data) {
+//             albums.push({
+//                 ...response.data[key],
+//                 id: key
+//             })
+//         }
+//         console.log(albums);
+//         return albums;
+//     }).catch(e => {
+//         return false;
+//     })
 
-    return {
-        type: GET_ALBUMS,
-        payload: request
-    }
-}
+//     return {
+//         type: GET_ALBUMS,
+//         payload: request
+//     }
+// }

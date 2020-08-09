@@ -12,9 +12,12 @@ export function getAlbumsDetails(catID, albumID) {
     }).then(response => {
         const images = [];
         for(let key in response.data) {
-            images.push(response.data[key])
+            images.push({
+                ...response.data[key],
+                id: key
+            });
         }
-        console.log(images);
+        //console.log(images);
         return images;
     }).catch(e => {
         return false;
