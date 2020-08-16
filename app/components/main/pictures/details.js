@@ -3,13 +3,20 @@ import {
   StyleSheet,
   View,
   Text,
-  ScrollView,
+  SafeAreaView,
   TouchableOpacity,
-  Image
+  Image,
+  StatusBar
 } from 'react-native';
 
 import { connect } from 'react-redux';
 import { getAlbumsDetails } from '../../../store/actions/picture_action/details_actions';
+
+import ImageHeader from '../../../galleryImage/components/ImageHeader';
+import ImageFooter from '../../../galleryImage/components/ImageFooter';
+import ImageGallery from '../../../galleryImage/components/ImageGallery';
+
+// import ImageView from 'react-native-image-viewing';
 
 class DetailPicture extends Component {
 
@@ -17,71 +24,81 @@ class DetailPicture extends Component {
     super(props);
   }
 
+  state = {
+    currentImageIndex: 0,
+    images: [],
+    isVisible: false
+  }
+
   componentDidMount() {
     this.props.dispatch(getAlbumsDetails(this.props.route.params.catID, this.props.route.params.albumID));
   }
 
+  onSelect = (images, index) => {
+    this.setState({
+      currentImageIndex: index,
+      images: images,
+      isVisible: true
+    })
+  }
+
+  onRequestClose = () => {
+    this.setState({
+      isVisible: false
+    })
+  }
+
   renderPicture = (value) => {
-    //console.log(value);
-    return(
-        value.data ? value.data.map((item, i) => (
-            <TouchableOpacity
-                key={i}
-            >
-                <View style={styles.cardContainer}>
-                    <View>
-                        <Image 
-                            style={{height:180, justifyContent:'space-around'}}
-                            source={{uri:`${item.url}`}}
-                            resizeMode='cover'
-                        />
-                    </View>
-                </View>
-            </TouchableOpacity>
-        )): null
-    )
+    //console.log(value.data);
+    const imagesResource = [];
+    if(value.data) {
+      const imageLength = value.data.length;
+      //console.log(imageLength);
+      value.data.map((item, i) => {
+        imagesResource.push({
+          uri: `${item.url}`
+        })
+      })
+      return (
+        <SafeAreaView style={styles.root}>
+          <ImageGallery 
+            imagesResource={imagesResource}
+            onPress={(index) => this.onSelect(imagesResource, index)}
+          />
+          {/* <ImageView 
+            images={imagesResource}
+            imageIndex={this.state.currentImageIndex}
+            presentationStyle="overFullScreen"
+            visible={this.state.isVisible}
+            onRequestClose={this.onRequestClose}
+            HeaderComponent={undefined}
+            FooterComponent={({imageIndex}) => (
+              <ImageFooter imageIndex={imageIndex} imagesCount={imagesResource.length} />
+            )}
+          /> */}
+        </SafeAreaView>
+      )
+    }
+
+    return null;
   }
   
   render() {
     return (
-      <ScrollView style={{backgroundColor: '#F0F0F0'}}>
-        {this.renderPicture(this.props.DetailPic)}
-      </ScrollView>
+        this.renderPicture(this.props.DetailPic)
     );
   }
 }
 
 const styles = StyleSheet.create({
-    cardContainer: {
-        backgroundColor: '#fff',
-        margin: 10,
-        shadowColor: '#dddddd',
-        shadowOffset: {width: 0, height: 2},
-        shadowOpacity: 0.8,
-        shadowRadius: 2,
-        elevation: 1,
-        borderRadius: 2,
-    },
-    contentCard: {
-        borderWidth: 1,
-        borderColor: '#dddddd'
-    },
-    titleCard: {
-        color: '#232323',
-        fontSize: 18,
-        padding: 10
-    },
-    bottomCard: {
-        flex: 1,
-        flexDirection: 'row',
-        borderTopWidth: 1,
-        borderTopColor: '#e6e6e6',
-        padding: 10
-    },
-    bottomCardText: {
-        color: '#828282',
-        fontSize: 12
-    }
+  root: {
+    flex: 1,
+    backgroundColor: "#000",
+    ...Platform.select({
+      android: { paddingTop: 0 },
+      default: null,
+    }),
+  },
 })
 
 function mapStateToProps(state) {

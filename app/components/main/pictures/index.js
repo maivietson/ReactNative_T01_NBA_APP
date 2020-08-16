@@ -45,9 +45,9 @@ export default class PictureHome extends Component {
                 <stack.Screen 
                     name="DetailPicture"
                     component={Detail}
-                    options={
-                        ({ route }) => ({ title: route.params.name })
-                    }
+                    options={{
+                        headerShown: false
+                    }}
                 />
             </stack.Navigator>
         )
