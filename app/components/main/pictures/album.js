@@ -79,6 +79,7 @@ const styles = StyleSheet.create({
         borderColor: '#dddddd'
     },
     titleCard: {
+        fontFamily: 'Roboto-Bold',
         color: '#232323',
         fontSize: 18,
         padding: 10
@@ -91,6 +92,7 @@ const styles = StyleSheet.create({
         padding: 10
     },
     bottomCardText: {
+        fontFamily: 'Roboto-Light',
         color: '#828282',
         fontSize: 12
     }
