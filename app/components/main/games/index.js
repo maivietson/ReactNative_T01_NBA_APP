@@ -5,6 +5,10 @@ import {
   Text
 } from 'react-native';
 
+import { createStackNavigator } from '@react-navigation/stack'
+
+const stack = createStackNavigator();
+
 export default class GameComponent extends Component {
   render() {
     return (
