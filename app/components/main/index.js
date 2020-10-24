@@ -53,7 +53,7 @@ export default class MainComponent extends Component {
             name="Games" 
             component={Games} 
             options={{
-              tabBarLabel: 'Category',
+              tabBarLabel: 'Videos',
               tabBarIcon: ({ color }) => (
                 <MaterialCommunityIcons name="apps" color={color} size={26} />
               )
